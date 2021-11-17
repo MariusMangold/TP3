@@ -1,0 +1,25 @@
+import numpy as np
+
+import math
+
+import matplotlib.pyplot as plt
+
+%matplotlib inline
+
+x,y = np.meshgrid(np.linspace(-2,8,50),np.linspace(-2,8,50))
+
+q =3
+
+a =2
+
+b_1=5
+
+b_2 =1
+
+u = q*(     ((x-b_1)/(np.sqrt((x-b_1)**2+(y-b_2)**2))**3)  -   (a*((x-((a*b_1)/((math.sqrt(b_1**2+b_2**2))**3))))   /  ((b_1)* (np.sqrt(((x-((a*b_1)/(math.sqrt(b_1**2+b_2**2))**2))**2)     +(y-((a*b_2)/(math.sqrt(b_1**2+b_2**2))**2))**2))**3)))
+
+v = q*(     ((x-b_2)/(np.sqrt((x-b_1)**2+(y-b_2)**2))**3)  -   (a*((x-((a*b_2)/((math.sqrt(b_1**2+b_2**2))**3))))   /  ((b_2)* (np.sqrt(((x-((a*b_1)/(math.sqrt(b_1**2+b_2**2))**2))**2)     +(y-((a*b_2)/(math.sqrt(b_1**2+b_2**2))**2))**2))**3)))
+
+plt.quiver(x,y,u,v, headwidth=3, headlength=5, headaxislength=4.5, minshaft=1, minlength=3, units='width', scale_units=None, angles='uv', width=None, color='k', pivot='tail')
+
+plt.show()
